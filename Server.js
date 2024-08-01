@@ -58,6 +58,11 @@ app.get("/api/movie/details/:movieId", async (req, res) => {
             revenue: response.data.revenue,
             runtime: `${hrs} hrs ${mins} mins`,
             poster: "https://image.tmdb.org/t/p/w500" + response.data.poster_path,
+            title: response.data.title,
+            description: response.data.overview,
+            rating: parseFloat(response.data.vote_average.toFixed(1)),
+            releaseDate: response.data.release_date,
+            tagline: response.data.tagline || ""
         };
         res.json(movieDetails);
     } catch (error) {
