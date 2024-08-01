@@ -57,6 +57,7 @@ app.get("/api/movie/details/:movieId", async (req, res) => {
             homepage: response.data.homepage,
             revenue: response.data.revenue,
             runtime: `${hrs} hrs ${mins} mins`,
+            poster: "https://image.tmdb.org/t/p/w500" + response.data.poster_path,
         };
         res.json(movieDetails);
     } catch (error) {
