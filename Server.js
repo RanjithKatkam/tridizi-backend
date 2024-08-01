@@ -79,7 +79,7 @@ app.get("/api/movie/people/:movieId", async (req, res) => {
     try {
         const response = await axios.get(url, options);
         const actors = response.data.cast.filter((cast) => cast.known_for_department === "Acting");
-        const directors = response.data.cast.filter((cast) => cast.known_for_department === "Directing");
+        const directors = response.data.crew.filter((cast) => cast.known_for_department === "Directing");
         const actorsList = actors.map((actor) => ({
             id: actor.id,
             name: actor.name,
